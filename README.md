@@ -44,20 +44,11 @@ I create, secure, and explore both low-level and high-level development. I also 
 
 ### 🏅 GitHub Stats
 
-![GitHub Stats](https://github-readme-stats.vercel.app/api?username=yourusername&show_icons=true&theme=tokyonight)  
+![GitHub Stats](https://github-readme-stats.vercel.app/api?username=Saxonys&show_icons=true&theme=tokyonight)  
 
-![GitHub Streak](https://streak-stats.demolab.com?user=yourusername&theme=tokyonight)  
+![GitHub Streak](https://streak-stats.demolab.com?user=Saxonys&theme=tokyonight)  
 
-![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=yourusername&layout=compact&theme=tokyonight)  
-
----
-
-### 📊 Contributions Overview
-
-- **Total Contributions:** _(auto-tracked by GitHub)_  
-- **Longest Streak:** _(auto-tracked by GitHub)_  
-- **Current Streak:** _(auto-tracked by GitHub)_  
-- **Since:** [Your GitHub Start Date]  
+![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=Saxonys&layout=compact&theme=tokyonight)  
 
 ---
 
