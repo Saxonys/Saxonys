@@ -1,4 +1,4 @@
-## 💻 Software Developer & Cybersecurity Enthusiast | Storm Development, Orion AI
+# 💻 Software Developer & Cybersecurity Enthusiast | Storm Development, Orion AI
 
 I create, secure, and explore both low-level and high-level development. I also do **Digital Forensics** and **Incident Response** to ensure robust machine security and swift threat mitigation.   
 🔹 See my portfolio at 🚀 [https://saxony.cc/](#)
