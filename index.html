@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Saxony's Website</title>
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="styles/styles.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+  
+  <!-- Scripts -->
+  <script defer src="scripts/scripts.js"></script>
+</head>
+<!-- Start of web -->
+<body>
+  <!-- SVG off stack overflow -->
+  <svg style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; opacity: 0.05;" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <pattern id="pattern" width="60" height="60" patternUnits="userSpaceOnUse">
+        <path d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z" fill="black"/>
+      </pattern>
+    </defs>
+    <rect width="100%" height="100%" fill="url(#pattern)"/>
+  </svg>
+
+<!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-4 sticky-top">
+    <a class="navbar-brand d-flex align-items-center" href="#">
+      <i class="bi bi-person-circle me-2"></i> Saxony
+    </a>
+    <div class="collapse navbar-collapse">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#blog">Blogs</a></li>
+        <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+        <li class="nav-item"><a class="nav-link" href="#resources">Resources</a></li>
+      </ul>
+    </div>
+  </nav>
+<!-- Profile -->
+  <section class="container my-4 d-flex justify-content-center align-items-center">
+    <div class="card p-3 d-flex flex-row align-items-center profile-card">
+      <img src="https://avatars.githubusercontent.com/u/72706246?v=4" class="rounded-circle me-3" alt="Profile Pic">
+      <div>
+        <h2>Saxony</h2>
+        <p>Full Stack Developer</p>
+        <p>Currently based in Birmingham, AL</p>
+        <p>HTML, CSS, JavaScript, Python, C, C++, C#, Java</p>
+      </div>
+    </div>
+  </section>
+  <div class="container mb-4 d-flex justify-content-center">
+    <button id="secretMessage" class="btn btn-primary"></i>Easter Egg</button>
+  </div>
+<!-- Section for blogs, projects, and developer resources -->
+  <section class="container my-4">
+    <div class="row justify-content-center mb-4">
+      <div class="col-lg-8">
+        <div class="content-card flex-fill mx-auto" id="blog">
+          <h3>📝 Blogs</h3>
+          <ul class="blog-list">
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!-- Projects div -->
+    <div class="row justify-content-center g-4">
+      <div class="col-md-6 d-flex">
+        <div class="content-card flex-fill" id="projects">
+          <h3>🛠 Projects</h3>
+          <ul>
+            <li>Storm Development — <a href="https://stormss.cc/">Website</a></li>
+            <li>Paragon — <a href="https://discord.gg/bY9CeHCXqQ">Discord</a></li>
+            <li>Storm Development GitHub— <a href="https://github.com/Storm-Development-Group">GitHub</a></li>
+          </ul>
+        </div>
+      </div>
+     <!-- Developer Resources div -->
+      <div class="col-md-6 d-flex">
+        <div class="content-card flex-fill" id="resources">
+          <h3>📚 Developer Resources</h3>
+          <ul>
+            <li><a href="https://developer.mozilla.org/">MDN Web Docs</a></li>
+            <li><a href="https://devdocs.io/">DevDocs</a></li>
+            <li><a href="https://github.com/">GitHub Repos</a></li>
+            <li><a href="https://stackoverflow.com/">Stack Overflow</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- The footer -->
+  <footer class="text-white text-center" id="footer">
+    &copy; 2025 | Made with ❤️ by Saxony
+  </footer>
+</body>
+</html>
