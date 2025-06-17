@@ -5,7 +5,7 @@ document.cookie = "visitorName=Guest" + "; expires=" + new Date(Date.now() + 7 *
   console.log("Welcome back, " + visitorName + "!");
 }
 
-// This gets the cookie (taken off website)
+// This gets the cookie (taken off of AI)
 function getCookie(name) {
   const value = `; ${document.cookie}`;
   const parts = value.split(`; ${name}=`);
