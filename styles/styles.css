@@ -49,3 +49,29 @@ body {
 .blog-list li {
   margin-bottom: 1.2rem;
 }
+
+.repo-list li {
+  margin-bottom: 1.2rem;
+}
+
+@media (max-width: 991.98px) {
+  #blog, #repos {
+    margin-bottom: 1.5rem;
+  }
+}
+
+.game-preview-card {
+  border: none;
+}
+
+.game-preview-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.game-preview-card .card-img-top {
+  height: 200px;
+  object-fit: cover;
+  border-top-left-radius: 0.375rem;
+  border-top-right-radius: 0.375rem;
+}
