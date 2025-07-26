@@ -55,7 +55,7 @@ I create, secure, and explore both low-level and high-level development. I also 
 📬 **Contact Me:** saxony@stormss.cc
 ---
 
-## 🚀 Running This Site Locally
+# 🚀 Running This Site Locally
 
 To run this portfolio site on your own machine:
 
