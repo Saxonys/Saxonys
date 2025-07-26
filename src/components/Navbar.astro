@@ -1,0 +1,64 @@
+<nav class="fixed top-0 left-0 right-0 bg-gradient-to-r from-bg-secondary/90 to-bg-secondary/95 backdrop-blur-lg border-b border-border-color z-40 shadow-lg">
+  <div class="container mx-auto px-4">
+    <div class="flex justify-between items-center h-16">
+      <a href="#" class="flex items-center gap-2 text-xl font-bold text-text-primary hover:text-accent-primary transition-colors duration-200">
+      
+      <button class="md:hidden text-text-primary hover:text-accent-primary transition-colors duration-200" id="mobile-menu" aria-label="Toggle menu">
+        <i class="fas fa-bars text-xl"></i>
+      </button>
+      
+      <div class="hidden md:flex gap-8" id="nav-links">
+        <a href="#" class="text-text-secondary hover:text-text-primary font-medium px-3 py-2 rounded transition-all duration-200 hover:bg-white/5 relative group">
+          About
+          <span class="absolute bottom-0 left-1/2 w-0 h-0.5 bg-gradient-to-r from-accent-primary to-accent-secondary transition-all duration-300 transform -translate-x-1/2 group-hover:w-full"></span>
+        </a>
+        <a href="#blogs" class="text-text-secondary hover:text-text-primary font-medium px-3 py-2 rounded transition-all duration-200 hover:bg-white/5 relative group">
+          Blogs
+          <span class="absolute bottom-0 left-1/2 w-0 h-0.5 bg-gradient-to-r from-accent-primary to-accent-secondary transition-all duration-300 transform -translate-x-1/2 group-hover:w-full"></span>
+        </a>
+        <a href="#projects" class="text-text-secondary hover:text-text-primary font-medium px-3 py-2 rounded transition-all duration-200 hover:bg-white/5 relative group">
+          Projects
+          <span class="absolute bottom-0 left-1/2 w-0 h-0.5 bg-gradient-to-r from-accent-primary to-accent-secondary transition-all duration-300 transform -translate-x-1/2 group-hover:w-full"></span>
+        </a>
+        <a href="#contact" class="text-text-secondary hover:text-text-primary font-medium px-3 py-2 rounded transition-all duration-200 hover:bg-white/5 relative group">
+          Contact
+          <span class="absolute bottom-0 left-1/2 w-0 h-0.5 bg-gradient-to-r from-accent-primary to-accent-secondary transition-all duration-300 transform -translate-x-1/2 group-hover:w-full"></span>
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<script>
+  // mobile stuff
+  const menuBtn = document.getElementById('mobile-menu');
+  const navLinks = document.getElementById('nav-links');
+
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', (e) => {
+      e.preventDefault();
+      const href = anchor.getAttribute('href');
+      if (!href || href === '#') return;
+      const target = document.querySelector(href);
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+        if (navLinks) {
+          navLinks.classList.add('hidden');
+          navLinks.classList.remove(
+            'flex',
+            'flex-col',
+            'absolute',
+            'top-full',
+            'left-0',
+            'right-0',
+            'bg-bg-secondary',
+            'p-4',
+            'border-b',
+            'border-border-color',
+            'shadow-lg'
+          );
+        }
+      }
+    });
+  });
+</script> 

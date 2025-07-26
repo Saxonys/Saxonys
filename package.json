@@ -1,0 +1,21 @@
+{
+  "name": "saxonys-portfolio",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/tailwind": "^5.0.0",
+    "@astrojs/vue": "^5.1.0",
+    "astro": "^5.12.3",
+    "vue": "^3.3.0"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.3.0"
+  }
+}

@@ -1,0 +1,22 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Hero from '../components/Hero.astro';
+import Blogs from '../components/Blogs.vue';
+import Projects from '../components/Projects.vue';
+import Contact from '../components/Contact.vue';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="saxony">
+  <Navbar />
+  
+  <main id="main">
+    <Hero client:load />
+    <Blogs />
+    <Projects />
+    <Contact />
+  </main>
+
+  <Footer />
+</Layout>

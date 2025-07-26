@@ -53,3 +53,43 @@ I create, secure, and explore both low-level and high-level development. I also 
 ---
 
 📬 **Contact Me:** saxony@stormss.cc
+---
+
+## 🚀 Running This Site Locally
+
+To run this portfolio site on your own machine:
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/Saxonys/Saxonys.git
+   cd Saxonys
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Start the development server**
+   ```bash
+   npm run dev
+   ```
+   The site will be available at [http://localhost:4321](http://localhost:4321) by default.
+
+4. **Build for production**
+   ```bash
+   npm run build
+   ```
+
+5. **Preview the production build**
+   ```bash
+   npm run preview
+   ```
+
+---
+
+**Requirements:**  
+- [Node.js](https://nodejs.org/) (v18 or higher recommended)
+- [npm](https://www.npmjs.com/) (comes with Node.js)
+
+For more details, see the [Astro documentation](https://docs.astro.build/).

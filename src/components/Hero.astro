@@ -1,0 +1,166 @@
+<section class="min-h-screen grid place-items-center relative pt-16 overflow-hidden">
+  <div class="absolute inset-0 -z-10">
+    <div class="absolute inset-0 bg-gradient-to-br from-accent-primary/3 to-accent-secondary/3"></div>
+  </div>
+  <div class="container mx-auto px-4 text-center max-w-4xl">
+    <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 animate-fade-in">
+      <span class="text-text-secondary">hello, i'm</span>
+      <span class="bg-gradient-to-r from-accent-primary to-accent-secondary bg-clip-text text-transparent"> saxony</span>
+      <span class="text-text-secondary">.</span>
+    </h1>
+    <p class="text-xl text-text-secondary mb-12 animate-fade-in">
+      i do fullstack development and have a passion for cybersecurity.
+    </p>
+    <div class="bg-bg-secondary border border-border-color rounded-xl overflow-hidden shadow-2xl animate-fade-in">
+      <div class="bg-bg-primary px-4 py-2 border-b border-border-color flex gap-2">
+        <div class="w-3 h-3 rounded-full bg-error"></div>
+        <div class="w-3 h-3 rounded-full bg-warning"></div>
+        <div class="w-3 h-3 rounded-full bg-success"></div>
+      </div>
+      <div class="p-6 font-mono text-sm">
+        <div class="flex gap-2 mb-2">
+          <span class="text-accent-primary">$</span>
+          <span class="text-text-secondary">saxony@stormss.cc</span>
+        </div>
+        <div id="astro-terminal-root"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script is:inline>
+(function() {
+  const terminalRoot = document.getElementById('astro-terminal-root');
+  if (!terminalRoot) return;
+
+  let terminalHistory = [];
+  let commandHistory = [];
+  let historyIndex = -1;
+
+  const commands = {
+    'whoami': () => 'saxony@stormss.cc',
+    'cat skills.txt': () => 'C/C++, C#, Python, JavaScript, HTML/CSS',
+    'cat resources.txt': () => 'C++ - https://learncpp.com/ | Web - https://developer.mozilla.org/ | Stack Overflow - https://stackoverflow.com/questions',
+    'help': () => [
+      'Available commands:',
+      '',
+      'whoami - Show current user',
+      'cat skills.txt - Show skills',
+      'cat resources.txt - Show helpful developer resources',
+      'clear - Clear terminal',
+      'help - Show this help',
+      ''
+    ].join('\n'),
+    'clear': () => {
+      terminalHistory = [];
+      renderTerminal();
+      return '';
+    }
+  };
+
+  function formatOutput(output) {
+    const urlPattern = /(https?:\/\/[^\s]+)/g;
+    return output
+      .replace(/ /g, '\u00A0')
+      .replace(/\n/g, '<br>')
+      .replace(urlPattern, '<a href="$&" target="_blank" rel="noopener noreferrer" class="text-accent-primary hover:underline">$&</a>');
+  }
+
+  function renderTerminal() {
+    terminalRoot.innerHTML = '';
+    terminalHistory.forEach(line => {
+      const div = document.createElement('div');
+      div.className = 'flex gap-2 mb-1';
+      if (line.type === 'input') {
+        div.innerHTML = `<span class="text-accent-primary">$</span><span class="text-text-secondary">${line.content}</span>`;
+      } else if (line.type === 'output') {
+        div.innerHTML = `<span class="text-accent-primary">&gt;</span><span class="text-text-secondary">${formatOutput(line.content)}</span>`;
+      } else if (line.type === 'error') {
+        div.innerHTML = `<span class="text-error">!</span><span class="text-error">${line.content}</span>`;
+      }
+      terminalRoot.appendChild(div);
+    });
+
+    const inputDiv = document.createElement('div');
+    inputDiv.className = 'flex gap-2 items-center';
+    inputDiv.innerHTML = `<span class="text-accent-primary">$</span><input id="astro-terminal-input" class="flex-1 bg-transparent text-text-secondary outline-none border-none" placeholder="Type a command..." autocomplete="off" />`;
+    terminalRoot.appendChild(inputDiv);
+    document.getElementById('astro-terminal-input').focus();
+  }
+
+  function addInput(input) {
+    terminalHistory.push({ type: 'input', content: input });
+  }
+  function addOutput(output) {
+    if (output) terminalHistory.push({ type: 'output', content: output });
+  }
+  function addError(error) {
+    terminalHistory.push({ type: 'error', content: error });
+  }
+
+  function handleCommand(command) {
+    if (!command.trim()) return;
+    addInput(command);
+    commandHistory.push(command);
+    historyIndex = commandHistory.length;
+    let result = '';
+    if (commands[command]) {
+      try {
+        result = commands[command]();
+      } catch (error) {
+        result = `Error: ${error.message}`;
+      }
+    } else {
+      result = `Command not found: ${command}. Type \"help\" for available commands.`;
+    }
+    if (result !== '') addOutput(result);
+    renderTerminal();
+  }
+
+  function handleKeydown(e) {
+    const input = document.getElementById('astro-terminal-input');
+    if (!input) return;
+    if (e.key === 'Enter') {
+      handleCommand(input.value);
+      input.value = '';
+    } else if (e.key === 'ArrowUp') {
+      if (historyIndex > 0) {
+        historyIndex--;
+        input.value = commandHistory[historyIndex] || '';
+      }
+    } else if (e.key === 'ArrowDown') {
+      if (historyIndex < commandHistory.length - 1) {
+        historyIndex++;
+        input.value = commandHistory[historyIndex] || '';
+      } else if (historyIndex === commandHistory.length - 1) {
+        historyIndex++;
+        input.value = '';
+      }
+    }
+  }
+
+  addOutput('Welcome! Type "help" for a list of commands.');
+  renderTerminal();
+  setTimeout(() => {
+    const input = document.getElementById('astro-terminal-input');
+    if (input) {
+      let i = 0;
+      const helpText = 'help';
+      function type() {
+        if (i < helpText.length) {
+          input.value = helpText.substring(0, i + 1);
+          i++;
+          setTimeout(type, 80);
+        }
+      }
+      type();
+    }
+  }, 400);
+
+  terminalRoot.addEventListener('keydown', handleKeydown, true);
+  setTimeout(() => {
+    const input = document.getElementById('astro-terminal-input');
+    if (input) input.focus();
+  }, 100);
+})();
+</script> 
