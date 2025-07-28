@@ -8,5 +8,5 @@ export default defineConfig({
     vue()
   ],
   site: 'https://saxonys.github.io',
-  base: '/Saxonys'
+  base: '/temp-repo'
 }); 
