@@ -21,11 +21,11 @@ document.addEventListener('DOMContentLoaded', () => {
   if (blogSection) {
     // add blog 1
     const newEntry = document.createElement('li');
-    newEntry.innerHTML = `<strong>Example Blog</strong><br><span class="blog-excerpt">Inserts on page loadup</span><br><a href="">Read More</a>`;
+    newEntry.innerHTML = `<strong>Example Blog</strong><br><span class="blog-excerpt">Inserts on page loadup</span><br>`;
     blogSection.querySelector('ul').appendChild(newEntry);
     // add blog 2
     const newEntry2 = document.createElement('li');
-    newEntry2.innerHTML = `<strong>Another Blog</strong><br><span class=blog-excerpt>Wow, another blog!</span><br><a href="">Read More</a>`;
+    newEntry2.innerHTML = `<strong>Another Blog</strong><br><span class=blog-excerpt>Wow, another blog!</span><br>`;
     blogSection.querySelector('ul').appendChild(newEntry2);
   }
 
@@ -40,4 +40,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
   setStandardCookie();
 });
+
+const blogList = document.querySelector(".blog-list");
+
+async function loadBlogPosts() {
+  try {
+    const res = await fetch("https://saxonys.github.io/static-blog-content/blog-data.json");
+    const data = await res.json();
+
+    let posts = Array.isArray(data.posts) ? data.posts : (Array.isArray(data) ? data : null);
+
+    (posts ? posts : []).forEach(post => {
+      const li = document.createElement("li");
+      li.innerHTML = `<strong>${post.title}</strong> <em>(${post.date})</em>: ${post.content}`;
+      blogList.appendChild(li);
+    });
+  } catch (err) {
+    blogList.innerHTML = "<li>Unable to load blog posts.</li>";
+  }
+}
+
+loadBlogPosts();
+
   
